@@ -10,10 +10,10 @@ def flatten(d, parent_key='', sep='.'):
     `this <https://stackoverflow.com/a/6027615>`_ Stackoverflow answer.
     '''
     items = []
-    for k, v in d.items():
+    for k, v in list(d.items()):
         new_key = parent_key + sep + k if parent_key else k
         if isinstance(v, collections.MutableMapping):
-            items.extend(flatten(v, new_key, sep=sep).items())
+            items.extend(list(flatten(v, new_key, sep=sep).items()))
         else:
             items.append((new_key, v))
     return dict(items)
@@ -74,7 +74,7 @@ def export_vulns_to_csv(fobj, vulns, *fields):
         # We need the vulnerability dictionary flattened out and all of the
         # lists converted into a pipe-delimited string.
         flat = flatten(vuln)
-        for k, v in flat.items():
+        for k, v in list(flat.items()):
             if isinstance(v, list):
                 flat[k] = '|'.join([str(i) for i in v])
         

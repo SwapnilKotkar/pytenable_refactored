@@ -16,26 +16,33 @@ interface to use for your own uses, take a look at the RESTfly library.
 .. autoclass:: APISession
     :members:
 '''
-from __future__ import absolute_import
-import requests, sys, platform, logging, re, time, logging, warnings, json
+
+import json
+import logging
+import platform
+import re
+import requests
+import sys
+import time
+import warnings
 from requests.exceptions import (
     ConnectionError as RequestsConnectionError,
     RequestException as RequestsRequestException
 )
-from tenable.utils import url_validator
-from tenable import __version__, __author__
 
+from tenable import __version__
 from tenable.errors import (
-		UnexpectedValueError,
-		InvalidInputError,
-		PermissionError,
-		NotFoundError,
-		UnsupportedError,
-		FileDownloadError,
-		ServerError,
-        UnknownError,
-        RetryError
+    UnexpectedValueError,
+    InvalidInputError,
+    PermissionError,
+    NotFoundError,
+    UnsupportedError,
+    ServerError,
+    UnknownError,
+    RetryError
 )
+from tenable.utils import url_validator
+
 
 class APIResultsIterator(object):
     '''
@@ -93,9 +100,9 @@ class APIResultsIterator(object):
         return self
 
     def __next__(self):
-        return self.next()
+        return next(self)
 
-    def next(self):
+    def __next__(self):
         '''
         Ask for the next record
         '''
@@ -232,8 +239,8 @@ class APIEndpoint(object):
         str_types = (str)
         if str in etypes:
             try:
-                etypes.append(unicode)
-                str_types = (str, unicode)
+                etypes.append(str)
+                str_types = (str, str)
             except NameError:
                 pass
 
@@ -556,7 +563,7 @@ class APISession(object):
                     kwargs = self._retry_request(resp, retries, kwargs)
                     continue
 
-                elif status in self._error_codes.keys():
+                elif status in list(self._error_codes.keys()):
                     # If a status code that we know about has returned, then we
                     # will want to raise the appropriate Error.
                     raise self._error_codes[status](resp)
@@ -679,3 +686,5 @@ class APISession(object):
             :obj:`requests.Response`
         '''
         return self._request('HEAD', path, **kwargs)
+
+

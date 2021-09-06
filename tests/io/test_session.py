@@ -40,7 +40,7 @@ def test_session_details(api):
     check(session, 'uuid', 'uuid')
     check(session, 'uuid_id', str)
     check(session, 'features', dict)
-    for item in session['features'].keys():
+    for item in list(session['features'].keys()):
         check(session['features'], item, bool)
 
 

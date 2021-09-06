@@ -16,12 +16,14 @@
 '''
 import logging
 
+
 class TenableException(Exception):
     '''
     Base exception class that sets up logging and handles some basic scaffolding
     for all other exception classes.  This exception should never be directly
     seen.
     '''
+
     def __init__(self, msg):
         self._log = logging.getLogger('{}.{}'.format(
             self.__module__, self.__class__.__name__))
@@ -49,6 +51,7 @@ class FileDownloadError(TenableException):
         resource_id (str):
             The identifier for the resource that was requested.
     '''
+
     def __init__(self, resource, resource_id, filename):
         self.resource = str(resource)
         self.resource_id = str(resource_id)
@@ -91,21 +94,24 @@ class TioExportsError(TenableException):
     When the exports APIs throw an error when processing an export, pyTenable
     will throw this error in turn to relay that context to the user.
     '''
+
     def __init__(self, export, uuid):
         self.export = export
         self.uuid = uuid
         TenableException.__init__(self,
-            '{} export {} has errored.'.format(export, uuid))
+                                  '{} export {} has errored.'.format(export, uuid))
+
 
 class TioExportsTimeout(TenableException):
     '''
     When an export has been cancelled due to timeout, this error is thrown.
     '''
+
     def __init__(self, export, uuid):
         self.export = export
         self.uuid = uuid
         TenableException.__init__(self,
-            '{} export {} has timed out.'.format(export, uuid))
+                                  '{} export {} has timed out.'.format(export, uuid))
 
 
 class APIError(TenableException):
@@ -333,3 +339,96 @@ class UnknownError(APIError):
             an empty string.
     '''
     pass
+
+# class BadRequestError(APIError):
+#     pass
+#
+# class BadGatewayError(APIError):
+#     pass
+#
+# class UnauthorizedError(APIError):
+#     pass
+#
+# class ForbiddenError(APIError):
+#     pass
+#
+# class InvalidMethodError(APIError):
+#     pass
+#
+# class NotAcceptableError(APIError):
+#     pass
+#
+# class ProxyAuthenticationError(APIError):
+#     pass
+#
+# class RequestTimeoutError(APIError):
+#     pass
+#
+# class RequestConflictError(APIError):
+#     pass
+#
+# class NoLongerExistsError(APIError):
+#     pass
+#
+# class LengthRequiredError(APIError):
+#     pass
+#
+# class PreconditionFailedError(APIError):
+#     pass
+#
+# class PayloadTooLargeError(APIError):
+#     pass
+#
+# class URITooLongError(APIError):
+#     pass
+#
+# class UnsupportedMediaTypeError(APIError):
+#     pass
+#
+# class RangeNotSatisfiableError(APIError):
+#     pass
+#
+# class ExpectationFailedError(APIError):
+#     pass
+#
+# class TeapotResponseError(APIError):
+#     pass
+#
+# class TooManyRequestsError(APIError):
+#     pass
+#
+# class TooEarlyError(APIError):
+#     pass
+#
+# class MisdirectRequestError(APIError):
+#     pass
+#
+# class UpgradeRequiredError(APIError):
+#     pass
+#
+# class PreconditionRequiredError(APIError):
+#     pass
+#
+# class RequestHeaderFieldsTooLargeError(APIError):
+#     pass
+#
+# class UnavailableForLegalReasonsError(APIError):
+#     pass
+#
+# class ServerError(APIError):
+#     pass
+#
+# class MethodNotImplementedError(APIError):
+#     pass
+#
+# class ServiceUnavailableError(APIError):
+#     pass
+#
+# class NotExtendedError(APIError):
+#     pass
+#
+# class GatewayTimeoutError(APIError):
+#     pass
+#
+# class NetworkAuthenticationRequiredError(APIError):
+#     pass

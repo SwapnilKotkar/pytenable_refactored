@@ -14,7 +14,7 @@ Methods available on ``cs.images``:
     .. automethod:: details
     .. automethod:: list
 '''
-from .base import CSEndpoint, CSIterator
+from base import CSEndpoint, CSIterator
 
 class ImageIterator(CSIterator):
     def _get_data(self):

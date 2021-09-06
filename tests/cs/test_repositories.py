@@ -46,7 +46,7 @@ def test_repositories_list_with_data(api):
     '''test to get the list of repositories list with the data'''
     repos = api.repositories.list()
     assert isinstance(repos, RepositoryIterator)
-    repo = repos.next()
+    repo = next(repos)
     assert isinstance(repo, dict)
     check(repo, 'name', str)
     check(repo, 'imagesCount', int)
@@ -69,7 +69,7 @@ def test_repositories_details_name_typerror(api):
 def test_repositories_details_success(api):
     '''test to get the details of the repositories'''
     repos = api.repositories.list()
-    repo = repos.next()
+    repo = next(repos)
     repo_details = api.repositories.details(repo['name'])
     assert isinstance(repo_details, dict)
     check(repo_details, 'name', str)
@@ -94,5 +94,5 @@ def test_repositories_delete_name_typeerror(api):
 def test_repositories_delete(api):
     '''test to delete the repositories'''
     repos = api.repositories.list()
-    repo = repos.next()
+    repo = next(repos)
     api.repositories.delete(repo['name'])

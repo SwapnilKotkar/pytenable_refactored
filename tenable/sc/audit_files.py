@@ -56,7 +56,7 @@ class AuditFileAPI(SCEndpoint):
             kw['variables'] = [{
                     'name': self._check('var:name', k, str),
                     'value': self._check('var:value', v, str)
-                } for k,v in self._check('vars', kw['vars'], dict).items()]
+                } for k,v in list(self._check('vars', kw['vars'], dict).items())]
             del(kw['vars'])
 
         if 'filename' in kw:

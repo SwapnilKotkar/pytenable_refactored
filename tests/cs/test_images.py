@@ -62,7 +62,7 @@ def test_images_list_tag_typeerror(api):
 def test_images_list_success(api):
     images = api.images.list()
     assert isinstance(images, ImageIterator)
-    i = images.next()
+    i = next(images)
     check(i, 'repoId', str)
     check(i, 'repoName', str)
     check(i, 'name', str)

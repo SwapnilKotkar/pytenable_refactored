@@ -12,7 +12,7 @@ Methods available on ``cs.uploads``:
 
     .. automethod:: docker_push
 '''
-from .base import CSEndpoint
+from base import CSEndpoint
 from tenable.errors import PackageMissingError
 
 class UploadAPI(CSEndpoint):

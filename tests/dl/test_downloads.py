@@ -152,7 +152,7 @@ def test_details():
     download = Downloads()
     data = download.details('nessus')
     assert data.releases
-    keys = [i for i in data.releases.keys() if i != 'latest']
+    keys = [i for i in list(data.releases.keys()) if i != 'latest']
     for version in data.releases:
         if version == 'latest':
             continue

@@ -63,7 +63,7 @@ class ExportsIterator(APIResultsIterator):
         def get_status():
             # Query the API for the status of the export.
             status = self._api.get('{}/export/{}/status'.format(self.type, self.uuid)).json()
-            log_message = f'EXPORT {self.type} {self.uuid} is status {status.get("status")}'
+            log_message = 'EXPORT {} {} is status {}'.format(self.type, self.uuid, status.get(status))
             self._log.debug(log_message)
 
             # We need to get the list of chunks that we haven't completed yet and are
@@ -144,7 +144,7 @@ class ExportsIterator(APIResultsIterator):
             self._log.warning(log_message)
             self._get_page()
 
-    def next(self):
+    def __next__(self):
         '''
         Ask for the next object
         '''
@@ -269,7 +269,7 @@ class ExportsAPI(TIOEndpoint):
         for option in ['since', 'first_found', 'last_found',
                        'last_fixed', 'first_scan_time',
                        'last_authenticated_scan_time', 'last_assessed']:
-            self._api._log.debug(f'{option}={kw.get(option)}')
+            self._api._log.debug('{}={}'.format(option, kw.get(option)))
             if self._check(option, kw.get(option), int) is not None:
                 payload['filters'][option] = kw[option]
 
@@ -302,7 +302,7 @@ class ExportsAPI(TIOEndpoint):
             # if the python version is less than 3, then we will need to
             # recast it as a unicode string.
             if sys.version_info < (3, 0):
-                cidr = unicode(cidr)
+                cidr = str(cidr)
 
             # Validate the cidr_range attribute as an actual CIDR range.  If it
             # returns an error back to us, then we can safely assume that it's

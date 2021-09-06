@@ -12,5 +12,7 @@ base class over the original APISession class.
 '''
 from restfly import APIEndpoint as Base
 
+
 class APIEndpoint(Base):
     pass
+

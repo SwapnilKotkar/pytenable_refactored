@@ -94,7 +94,7 @@ def test_exports_vulns(api):
     vulns = api.exports.vulns()
     assert isinstance(vulns, ExportsIterator)
 
-    vuln = vulns.next()
+    vuln = next(vulns)
     assert isinstance(vuln, dict)
 
     # The asset dictionary appears to be highly variable, so we wont be testing,
@@ -218,7 +218,7 @@ def test_exports_assets(api):
     '''test to export the asset data'''
     assets = api.exports.assets()
     assert isinstance(assets, ExportsIterator)
-    asset = assets.next()
+    asset = next(assets)
     assert isinstance(asset, dict)
     check(asset, 'agent_names', list)
     check(asset, 'agent_uuid', str, allow_none=True)
@@ -375,5 +375,5 @@ def test_exports_compliance(api):
             if resp['status'] == 'ERROR':
                 check(resp, 'check_error', str)
     except TioExportsError as error:
-        print(error.msg)
+        print((error.msg))
         log_exception(error)

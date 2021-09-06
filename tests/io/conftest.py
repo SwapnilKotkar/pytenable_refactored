@@ -44,7 +44,7 @@ def stdapi():
 @pytest.fixture
 def agent(api):
     '''agent fixture'''
-    return api.agents.list().next()
+    return next(api.agents.list())
 
 
 @pytest.fixture
@@ -183,7 +183,7 @@ def remediationscan(request, api):
 @pytest.fixture
 def scan_results(api):
     '''fixture to get the scan results'''
-    scan_list = [id['id'] for id in list(filter(lambda value: value['status'] == 'completed', api.scans.list()))]
+    scan_list = [id['id'] for id in list([value for value in api.scans.list() if value['status'] == 'completed'])]
     if scan_list:
         return {'results': api.scans.results(scan_list[0]), 'id': scan_list[0]}
     raise NotFoundError("Scan not found")

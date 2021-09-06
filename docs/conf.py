@@ -31,10 +31,10 @@ import tenable
 
 # -- Project information -----------------------------------------------------
 
-project = u'pyTenable'
+project = 'pyTenable'
 year = datetime.datetime.now().year
-copyright = u'{}, Tenable, Inc.'.format(year)
-author = u'Tenable, Inc.'
+copyright = '{}, Tenable, Inc.'.format(year)
+author = 'Tenable, Inc.'
 
 # The short X.Y version
 version = tenable.__version__
@@ -169,8 +169,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'pyTenable.tex', u'pyTenable Documentation',
-     u'Steven McGrath', 'manual'),
+    (master_doc, 'pyTenable.tex', 'pyTenable Documentation',
+     'Steven McGrath', 'manual'),
 ]
 
 
@@ -179,7 +179,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'pytenable', u'pyTenable Documentation',
+    (master_doc, 'pytenable', 'pyTenable Documentation',
      [author], 1)
 ]
 
@@ -190,7 +190,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'pyTenable', u'pyTenable Documentation',
+    (master_doc, 'pyTenable', 'pyTenable Documentation',
      author, 'pyTenable', 'One line description of project.',
      'Miscellaneous'),
 ]

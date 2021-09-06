@@ -412,7 +412,7 @@ def test_credentials_types_success(api):
             for config in each_type.get('configuration'):
                 check(config, 'type', str)
                 check(config, 'name', str)
-                if 'hint' in config.keys():
+                if 'hint' in list(config.keys()):
                     check(config, 'hint', str, allow_none=True)
                 check(config, 'id', str)
 

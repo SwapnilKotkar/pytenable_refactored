@@ -24,6 +24,7 @@ from .assets import AssetsAPI
 from .network_interfaces import NetworkInterfacesAPI
 from .vulns import VulnsAPI
 
+
 class TenableOT(APIPlatform):
     '''
     The Tenable.ot object is the primary interaction point for users to
@@ -67,12 +68,10 @@ class TenableOT(APIPlatform):
         '''
         Authentication method for Tenable.ot platform
         '''
-        api_token = kwargs.get('secret_key',
-            os.getenv(f'{self._env_base}_SECRET_KEY')
-        )
+        api_token = kwargs.get('secret_key', os.getenv('{}_SECRET_KEY').format(self._env_base))
 
         self._session.headers.update({
-            'X-APIKeys': f'key={api_token}',
+            'X-APIKeys': 'key={}'.format(api_token),
         })
 
     def graphql(self, **kwargs):

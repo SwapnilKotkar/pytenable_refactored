@@ -44,7 +44,7 @@ class NessusReportv2(object):
         return self
 
     def __next__(self):
-        return self.next()
+        return next(self)
 
     def _defs(self, name, value):
         if name in ['cvss_vector', 'cvss_temporal_vector']:
@@ -68,7 +68,7 @@ class NessusReportv2(object):
         else:
             return value
 
-    def next(self):
+    def __next__(self):
         '''
         Get the next ReportItem from the nessus file and return it as a
         python dictionary.
@@ -113,7 +113,7 @@ class NessusReportv2(object):
                     # needs to be normalized.  Here we will pass each item through
                     # the definition parser to make sure any known values are
                     # formatted properly.
-                    for k in vuln.keys():
+                    for k in list(vuln.keys()):
                         vuln[k] = self._defs(k, vuln[k])
 
                     for c in elem:

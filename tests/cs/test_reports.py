@@ -16,7 +16,7 @@ def test_reports_report_digest_typeerror(api):
 def test_reports_report(api):
     '''test to get the image report by the image digest'''
     images = api.images.list()
-    image = images.next()
+    image = next(images)
     resp = api.reports.report(image['digest'])
     assert isinstance(resp, dict)
     check(resp, 'image_name', str)

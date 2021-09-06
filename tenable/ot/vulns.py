@@ -46,7 +46,7 @@ class VulnAssetIntermixer(object):
         return self
 
     def __next__(self):
-        return self.next()
+        return next(self)
 
     def __init__(self, api):
         self._api = api
@@ -77,7 +77,7 @@ class VulnAssetIntermixer(object):
         )
         self.vuln_count += 1
 
-    def next(self):
+    def __next__(self):
         '''
         Retrieves the next item.
 
@@ -100,7 +100,7 @@ class VulnAssetIntermixer(object):
         resp = None
         while not resp:
             try:
-                resp = self._merge_cache(self._va_iterator.next())
+                resp = self._merge_cache(next(self._va_iterator))
                 self.count += 1
             except StopIteration:
                 self._vulns_idx += 1
