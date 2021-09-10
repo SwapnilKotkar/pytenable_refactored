@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 from tenable.reports import NessusReportv2
 import click, re
-import  six
+import six
+
 
 @click.command()
 @click.argument('report', type=click.File('r'))
@@ -22,6 +23,7 @@ def run(report):
                     v['host-ip'],
                     res[0]
                 ))
+
 
 if __name__ == '__main__':
     run()

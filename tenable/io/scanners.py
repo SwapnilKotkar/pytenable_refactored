@@ -21,7 +21,7 @@ Methods available on ``tio.scanners``:
     .. automethod:: list
     .. automethod:: toggle_link_state
 '''
-from .base import TIOEndpoint
+from base import TIOEndpoint
 
 class ScannersAPI(TIOEndpoint):
 

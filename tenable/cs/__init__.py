@@ -36,11 +36,11 @@ Example:
 import os
 from tenable.base import APISession
 from tenable.errors import UnexpectedValueError
-from .images import ImageAPI
-from .reports import ReportAPI
-from .repositories import RepositoryAPI
-from .uploads import UploadAPI
-from .usage import UsageAPI
+from images import ImageAPI
+from reports import ReportAPI
+from repositories import RepositoryAPI
+from uploads import UploadAPI
+from usage import UsageAPI
 
 class ContainerSecurity(APISession):
     '''

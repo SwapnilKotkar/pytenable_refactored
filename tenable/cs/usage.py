@@ -12,7 +12,7 @@ Methods available on ``cs.usage``:
 
     .. automethod:: stats
 '''
-from .base import CSEndpoint
+from base import CSEndpoint
 
 class UsageAPI(CSEndpoint):
     def stats(self):

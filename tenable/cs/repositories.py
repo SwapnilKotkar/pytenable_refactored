@@ -14,7 +14,7 @@ Methods available on ``cs.repositories``:
     .. automethod:: details
     .. automethod:: list
 '''
-from .base import CSEndpoint, CSIterator
+from base import CSEndpoint, CSIterator
 
 class RepositoryIterator(CSIterator):
     def _get_data(self):

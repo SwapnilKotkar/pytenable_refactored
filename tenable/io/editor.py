@@ -20,7 +20,7 @@ Methods available on ``io.editor``:
     .. automethod:: template_details
     .. automethod:: template_list
 '''
-from .base import TIOEndpoint
+from base import TIOEndpoint
 from tenable.utils import dict_merge, policy_settings
 from io import BytesIO
 

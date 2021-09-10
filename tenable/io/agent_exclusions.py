@@ -17,7 +17,7 @@ Methods available on ``tio.agent_exclusions``:
     .. automethod:: list
 '''
 from restfly.utils import dict_merge, dict_clean
-from .base import TIOEndpoint
+from base import TIOEndpoint
 from datetime import date, datetime, timedelta
 
 class AgentExclusionsAPI(TIOEndpoint):

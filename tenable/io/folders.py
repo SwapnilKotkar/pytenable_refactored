@@ -15,7 +15,7 @@ Methods available on ``tio.folders``:
     .. automethod:: edit
     .. automethod:: list
 '''
-from .base import TIOEndpoint
+from base import TIOEndpoint
 
 class FoldersAPI(TIOEndpoint):
     def create(self, name):

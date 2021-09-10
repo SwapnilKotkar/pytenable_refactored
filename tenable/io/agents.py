@@ -16,7 +16,7 @@ Methods available on ``tio.agents``:
     .. automethod:: task_status
 
 '''
-from .base import TIOIterator, TIOEndpoint
+from base import TIOIterator, TIOEndpoint
 
 class AgentsIterator(TIOIterator):
     '''

@@ -12,7 +12,7 @@ Methods available on ``tio.files``:
 
     .. automethod:: upload
 '''
-from .base import TIOEndpoint
+from base import TIOEndpoint
 import uuid
 
 class FileAPI(TIOEndpoint):

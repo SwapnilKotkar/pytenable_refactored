@@ -12,7 +12,7 @@ Methods available on ``cs.reports``:
 
     .. automethod:: report
 '''
-from .base import CSEndpoint
+from base import CSEndpoint
 
 class ReportAPI(CSEndpoint):
     def report(self, digest):

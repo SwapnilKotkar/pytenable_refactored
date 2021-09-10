@@ -19,7 +19,7 @@ Methods available on ``tio.policies``:
     .. automethod:: policy_export
     .. automethod:: list
 '''
-from .base import TIOEndpoint
+from base import TIOEndpoint
 from tenable.utils import policy_settings, dict_merge
 from io import BytesIO
 import six

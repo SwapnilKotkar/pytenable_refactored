@@ -30,7 +30,7 @@ Example:
     .. automethod:: delete
 '''
 from tenable.base import APISession
-from .pages import PageAPI
+from pages import PageAPI
 import warnings
 
 class Downloads(APISession):

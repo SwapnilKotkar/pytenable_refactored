@@ -18,7 +18,7 @@ Methods available on ``tio.groups``:
     .. automethod:: list
     .. automethod:: list_users
 '''
-from .base import TIOEndpoint
+from base import TIOEndpoint
 
 class GroupsAPI(TIOEndpoint):
     def add_user(self, group_id, user_id):

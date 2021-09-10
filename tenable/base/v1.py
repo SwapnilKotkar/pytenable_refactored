@@ -235,7 +235,11 @@ class APIEndpoint(object):
         if str in etypes:
             try:
                 etypes.append(str) if six.PY3 else etypes.append('unicode')
-                str_types = (str, str) if six.PY3 else str_types = (str, 'unicode')
+                if six.PY3:
+                    str_types = (str, str)
+                else:
+                    str_types = (str, 'unicode')
+
             except NameError:
                 pass
 

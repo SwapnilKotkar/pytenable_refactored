@@ -18,7 +18,7 @@ Methods available on ``tio.access_groups``:
 '''
 from tenable.errors import UnexpectedValueError
 from tenable.utils import dict_merge
-from .base import TIOEndpoint, TIOIterator
+from base import TIOEndpoint, TIOIterator
 
 class AccessGroupsIterator(TIOIterator):
     '''

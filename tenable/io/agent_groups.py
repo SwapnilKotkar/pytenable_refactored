@@ -19,7 +19,7 @@ Methods available on ``tio.agent_groups``:
     .. automethod:: list
     .. automethod:: task_status
 '''
-from .base import TIOEndpoint
+from base import TIOEndpoint
 
 
 class AgentGroupsAPI(TIOEndpoint):

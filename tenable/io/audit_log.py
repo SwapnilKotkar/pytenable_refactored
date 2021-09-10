@@ -12,7 +12,7 @@ Methods available on ``io.audit_log``:
 
     .. automethod:: events
 '''
-from .base import TIOEndpoint
+from base import TIOEndpoint
 
 class AuditLogAPI(TIOEndpoint):
     def events(self, *filters, **kw):

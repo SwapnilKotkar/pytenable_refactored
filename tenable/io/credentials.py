@@ -19,7 +19,7 @@ Methods available on ``tio.credentials``:
     .. automethod:: upload
 '''
 from tenable.utils import dict_merge
-from .base import TIOEndpoint, TIOIterator
+from base import TIOEndpoint, TIOIterator
 
 class CredentialsIterator(TIOIterator):
     '''

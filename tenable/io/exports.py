@@ -318,7 +318,11 @@ class ExportsAPI(TIOEndpoint):
             # if the python version is less than 3, then we will need to
             # recast it as a unicode string.
             if sys.version_info < (3, 0):
-                cidr = str(cidr) if six.PY3 else cidr = u'(cidr)'
+                # cidr = str(cidr) if six.PY3 else cidr = u'(cidr)'
+                if six.PY3:
+                    cidr = str(cidr)
+                else:
+                    cidr = u'(cidr)'
 
             # Validate the cidr_range attribute as an actual CIDR range.  If it
             # returns an error back to us, then we can safely assume that it's
